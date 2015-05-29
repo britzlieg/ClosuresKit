@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios,7.0
+use_frameworks!
+
+pod 'Alamofire'
+pod 'SnapKit'
+pod 'Async', :git => 'https://github.com/duemunk/Async.git'
+pod 'Spring'
+pod 'SwiftyJSON'
+pod 'CryptoSwift'

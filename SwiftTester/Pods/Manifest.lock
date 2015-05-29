@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (1.2.2)
+  - Async (1.2.1)
+  - CryptoSwift (0.0.10)
+  - SnapKit (0.11.0)
+  - Spring (1.0.3)
+  - SwiftyJSON (2.2.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Async (from `https://github.com/duemunk/Async.git`)
+  - CryptoSwift
+  - SnapKit
+  - Spring
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Async:
+    :git: https://github.com/duemunk/Async.git
+
+CHECKOUT OPTIONS:
+  Async:
+    :commit: 7536a4d8059be119fd4a4550d674996f8a1cdd54
+    :git: https://github.com/duemunk/Async.git
+
+SPEC CHECKSUMS:
+  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
+  Async: d9ee6fc9c415d44fcb892f4c289d1e79ce8ae92d
+  CryptoSwift: 3b886d001f50deb65623a8967d68f6b8bf8d9ba1
+  SnapKit: 5194d53cee209d337a989919ff66a70b7aa3dda3
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
+
+COCOAPODS: 0.37.0.rc.2
