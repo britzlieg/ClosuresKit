@@ -7,7 +7,7 @@ Pull "UIViewExt.swift" into the project.
 The UIView and its subviews can do like this:
 
 ```swift
-        btn.whenDoubleTapped({ () -> Void in
-            println("This is a button double tap!")
-        })
+        button_2.whenTapped { () -> Void in
+            print("button_2 has been clicked")
+        }
 ```
