@@ -6,14 +6,17 @@
 //  Copyright (c) 2015年 ZhijieLi. All rights reserved.
 //
 
-import UIKit
-import ObjectiveC
+/// 先只做单击事件的监听
+// NSValue
 
-var blockAction: (() -> ()) = {}   /// 原来可以这样定义，作为全局stored的变量，吐血。。。
+
+import UIKit
+
+var blockActionDict: [String : (() -> ())] = [:]
 
 extension UIView {
-    func whenTouch(NumberOfTouche touchNumbers: Int,NumberOfTaps tapNumbers: Int) -> Void {
-        var tapGesture = UITapGestureRecognizer()
+    private func whenTouch(NumberOfTouche touchNumbers: Int,NumberOfTaps tapNumbers: Int) -> Void {
+        let tapGesture = UITapGestureRecognizer()
         tapGesture.numberOfTouchesRequired = touchNumbers
         tapGesture.numberOfTapsRequired = tapNumbers
         tapGesture .addTarget(self, action: "tapActions")
@@ -22,19 +25,27 @@ extension UIView {
     
     func whenTapped(action :(() -> Void)) {
         // 手势-一次点击
-        self.whenTouch(NumberOfTouche: 1, NumberOfTaps: 1)
-        blockAction = action
+        _addBlock(NewAction: action)
+        whenTouch(NumberOfTouche: 1, NumberOfTaps: 1)
     }
-    
-    func whenDoubleTapped(action :(() -> Void)) {
-        // 手势-两次点击
-        self.whenTouch(NumberOfTouche: 1, NumberOfTaps: 2)
-        blockAction = action
-    }
+
     
     func tapActions() {
         // 执行action
-        blockAction()
+        _excuteCurrentBlock()
     }
+
+
+    private func _addBlock(NewAction newAction:()->()) {
+        let key = String(NSValue(nonretainedObject: self))
+        blockActionDict[key] = newAction
+    }
+
+    private func _excuteCurrentBlock(){
+        let key = String(NSValue(nonretainedObject: self))
+        let block = blockActionDict[key]
+        block!()
+    }
+
 }
 
